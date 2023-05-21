@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scientific Calculator</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+          }
+          
+          h1 {
+            text-align: center;
+            color: #333;
+          }
+          
+          form {
+            margin-top: 20px;
+            text-align: center;
+          }
+          
+          input[type="text"] {
+            width: 300px;
+            height: 40px;
+            font-size: 24px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
+          
+          table {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+          }
+          
+          td {
+            padding: 10px;
+          }
+          
+          button {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+          
+          button:hover {
+            background-color: #555;
+          }
+          
+          button:active {
+            transform: translateY(2px);
+          }
+          
+          button.operator {
+            background-color: #5cb85c;
+          }
+          
+          button.clear {
+            background-color: #d9534f;
+          }
+          
+          button.equals {
+            background-color: #428bca;
+          }
+          
+          button:hover.operator {
+            background-color: #72d072;
+          }
+          
+          button:hover.clear {
+            background-color: #f08080;
+          }
+          
+          button:hover.equals {
+            background-color: #5bc0de;
+          }
+          
+    </style>
+</head>
+<body>
+	<h1>Scientific Calculator</h1>
+	<form>
+		<input type="text" id="input" name="input" placeholder="Enter calculation here" />
+	</form>
+	<table>
+		<tr>
+			<td><button onclick="insert('7')">7</button></td>
+			<td><button onclick="insert('8')">8</button></td>
+			<td><button onclick="insert('9')">9</button></td>
+			<td><button onclick="insert('/')">/</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="insert('4')">4</button></td>
+			<td><button onclick="insert('5')">5</button></td>
+			<td><button onclick="insert('6')">6</button></td>
+			<td><button onclick="insert('*')">*</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="insert('1')">1</button></td>
+			<td><button onclick="insert('2')">2</button></td>
+			<td><button onclick="insert('3')">3</button></td>
+			<td><button onclick="insert('-')">-</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="insert('0')">0</button></td>
+			<td><button onclick="insert('.')">.</button></td>
+			<td><button onclick="insert('(')">(</button></td>
+			<td><button onclick="insert(')')">)</button></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button onclick="clearInput()">Clear</button></td>
+			<td><button onclick="insert('+')">+</button></td>
+			<td><button onclick="calculate()">=</button></td>
+		</tr>
+	</table>
+	<script>
+		function insert(value) {
+			document.getElementById('input').value += value;
+		}
+		
+		function clearInput() {
+			document.getElementById('input').value = '';
+		}
+		
+		function calculate() {
+			var input = document.getElementById('input').value;
+			var result = eval(input);
+			document.getElementById('input').value = result;
+		}
+	</script>
+</body>
+</html>
